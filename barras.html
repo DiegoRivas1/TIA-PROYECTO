@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Compara los datos d eun archivo todos contra todos-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Dropdowns and Bar Chart with D3.js</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="js/barras.js"></script>
+  <style>
+    svg {
+      font: 10px sans-serif;
+    }
+    .axis path,
+    .axis line {
+      fill: none;
+      shape-rendering: crispEdges;
+    }
+    .bar {
+      fill: steelblue;
+    }
+    .bar:hover {
+      fill: orange;
+    }
+  </style>
+</head>
+<body>
+  <h1>Archivo inputevents y ditems</h1>
+  <p>Combina inputevents.csv y items.csv usando left join, en un rango de 20:00 a 6:00 solo cogemos itemid', 'category’ de ditems y 
+    de inputevents condicionamos la busqueda con "ChangeDose/Rate", "Paused" o "Stopped" basados en la columna statusdescription.
+</p>
+  <div>
+    <label for="x-axis">X-Axis:</label>
+    <select id="x-axis"></select>
+  </div>
+  
+  <div>
+    <label for="y-axis">Y-Axis:</label>
+    <select id="y-axis"></select>
+  </div>
+
+  <svg width="960" height="500"></svg>
+
+  <script>
+    //"Archivo_procesado/filtered_medication_errors.csv"
+    // Load data from CSV Datos/icu/inputevents.csv
+    createBarChartFromCSV("Archivo_procesado/filtered_medication_errors.csv");
+
+  </script>
+</body>
+</html>
